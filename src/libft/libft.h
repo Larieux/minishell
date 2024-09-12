@@ -6,7 +6,7 @@
 /*   By: jlarieux <jlarieux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 14:08:40 by jlarieux          #+#    #+#             */
-/*   Updated: 2024/09/12 13:21:14 by jlarieux         ###   ########.fr       */
+/*   Updated: 2024/09/12 14:00:09 by jlarieux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <stdbool.h>
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 6
+#  define BUFFER_SIZE 9
 # endif
 
 # ifndef MAX_FD
