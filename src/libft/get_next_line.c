@@ -6,12 +6,11 @@
 /*   By: jlarieux <jlarieux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 16:26:13 by jlarieux          #+#    #+#             */
-/*   Updated: 2024/09/12 14:14:16 by jlarieux         ###   ########.fr       */
+/*   Updated: 2024/09/12 14:30:43 by jlarieux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>//
 
 char	*test_old_line_gnl(char *old_line)
 {
@@ -33,7 +32,6 @@ char	*test_old_line_gnl(char *old_line)
 
 bool	test_new_line_gnl(char *line)
 {
-	printf("\n1%s1\n", line);
 	if (!line || line == NULL)
 		return (true);
 	if (ft_strchr(line, '\n') != NULL)
@@ -47,7 +45,6 @@ char	*make_line_gnl(char *line, char *buffer, int fd, size_t size)
 	size_t	n;
 
 	n = size;
-	printf("\n2%s2\n", line);
 	while (!test_new_line_gnl(line) && n == size)
 	{
 		n = read(fd, buffer, BUFFER_SIZE);
@@ -76,7 +73,6 @@ char	*get_next_line(int fd)
 	if (!old_line)
 		return (NULL);
 	line = test_old_line_gnl(old_line);
-	printf("\n3%s3\n", line);
 	old_line = make_line_gnl(line, buffer, fd, BUFFER_SIZE);
 	if (!old_line)
 		return (NULL);
