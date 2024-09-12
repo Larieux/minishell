@@ -6,7 +6,7 @@
 /*   By: jlarieux <jlarieux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 14:48:05 by jlarieux          #+#    #+#             */
-/*   Updated: 2024/09/12 17:36:49 by jlarieux         ###   ########.fr       */
+/*   Updated: 2024/09/12 17:53:13 by jlarieux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	main(void)
 	while (i < 9)
 	{
 		line = get_next_line(fd);
-		printf("%s\n", line);
+		printf("%s", line);
 		free(line);
 		i++;
 	}
