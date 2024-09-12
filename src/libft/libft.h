@@ -6,21 +6,31 @@
 /*   By: jlarieux <jlarieux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 14:08:40 by jlarieux          #+#    #+#             */
-/*   Updated: 2024/03/18 15:52:01 by jlarieux         ###   ########.fr       */
+/*   Updated: 2024/09/12 13:21:14 by jlarieux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include <stdlib.h>
 # include <unistd.h>
+# include <stdlib.h>
+# include <fcntl.h>
+# include <stdbool.h>
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 6
 # endif
 
-# define MAX_FD 128
+# ifndef MAX_FD
+#  define MAX_FD 128
+# endif
+
+typedef struct s_list
+{
+	int				content;
+	struct s_list	*next;
+}					t_list;
 
 size_t		ft_strlen(const char *s);
 size_t		ft_strlcpy(char *dst, const char *src, size_t size);
@@ -34,9 +44,6 @@ size_t		ft_strlcpy(char *dst, const char *src, size_t size);
  * @return size_t 
  */
 size_t		ft_strlcat(char *dst, const char *src, size_t size);
-size_t		ft_strlcpy_gnl(char *dst, const char *src, size_t size);
-size_t		ft_strlcat_gnl(char *dst, const char *src, size_t size);
-size_t		ft_strlen_gnl(const char *s);
 int			ft_isalpha(int c);
 int			ft_isdigit(int c);
 int			ft_isalnum(int c);
@@ -58,8 +65,6 @@ int			ft_tolower(int c);
 int			ft_strncmp(const char *s1, const char *s2, size_t n);
 int			ft_memcmp(const void *s1, const void *s2, size_t n);
 int			ft_atoi(const char *nptr);
-int			ft_test_old_line_gnl(char *buffer);
-int			ft_test_new_line_gnl(char *line);
 void		*ft_memset(void *s, int c, size_t n);
 void		*ft_memcpy(void *dest, const void *src, size_t n);
 void		*ft_memmove(void *dest, const void *src, size_t n);
@@ -151,8 +156,29 @@ char		*ft_strmapi(char const *s, char (*f)(unsigned int, char));
  * @return char** 
  */
 char		**ft_split(char const *s, char c);
-char		*ft_strjoin_gnl(char *s1, char *s2);
-char		*do_line_gnl(char *line, int fd, char *buffer, ssize_t size);
+
+/* ************************************************************************** */
+/* 																			  */
+/* 									linked-lists							  */
+/* 																			  */
+/* ************************************************************************** */
+
+t_list		*ft_lstnew(int content);
+t_list		*ft_lstlast(t_list *lst);
+void		ft_lstadd_front(t_list **lst, t_list *new);
+void		ft_lstadd_back(t_list **lst, t_list *new);
+void		ft_lstclear(t_list **lst);
+int			ft_lstsize(t_list *lst);
+
+/* ************************************************************************** */
+/* 																			  */
+/* 									get_next_line							  */
+/* 																			  */
+/* ************************************************************************** */
+
+char		*test_old_line_gnl(char *line);
+bool		test_new_line_gnl(char *line);
+char		*make_line_gnl(char *line, char *buffer, int fd, size_t size);
 
 /**
  * @brief Get the next line object
@@ -161,18 +187,5 @@ char		*do_line_gnl(char *line, int fd, char *buffer, ssize_t size);
  * @return char* 
  */
 char		*get_next_line(int fd);
-
-typedef struct s_list
-{
-	int				content;
-	struct s_list	*next;
-}					t_list;
-
-t_list		*ft_lstnew(int content);
-t_list		*ft_lstlast(t_list *lst);
-void		ft_lstadd_front(t_list **lst, t_list *new);
-void		ft_lstadd_back(t_list **lst, t_list *new);
-void		ft_lstclear(t_list **lst);
-int			ft_lstsize(t_list *lst);
 
 #endif
