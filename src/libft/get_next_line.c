@@ -6,7 +6,7 @@
 /*   By: jlarieux <jlarieux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 16:26:13 by jlarieux          #+#    #+#             */
-/*   Updated: 2024/09/12 17:59:46 by jlarieux         ###   ########.fr       */
+/*   Updated: 2024/09/12 18:10:12 by jlarieux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ bool	test_new_line_gnl(char *line)
 	char	*ptr;
 
 	if (!line || line == NULL)
-		return (true);
+		return (false);
 	ptr = ft_strchr(line, '\n');
 	if (ptr != NULL)
 	{
