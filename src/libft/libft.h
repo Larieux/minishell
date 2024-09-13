@@ -6,7 +6,7 @@
 /*   By: jlarieux <jlarieux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 14:08:40 by jlarieux          #+#    #+#             */
-/*   Updated: 2024/09/12 17:35:07 by jlarieux         ###   ########.fr       */
+/*   Updated: 2024/09/13 09:01:33 by jlarieux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -178,7 +178,7 @@ int			ft_lstsize(t_list *lst);
 
 char		*test_old_line_gnl(char *buffer);
 bool		test_new_line_gnl(char *line);
-char		*make_line_gnl(char *line, char *buffer, int fd, size_t size);
+char		*make_line_gnl(char *line, char *buffer, int fd, ssize_t size);
 
 /**
  * @brief Get the next line object

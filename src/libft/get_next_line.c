@@ -6,7 +6,7 @@
 /*   By: jlarieux <jlarieux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 16:26:13 by jlarieux          #+#    #+#             */
-/*   Updated: 2024/09/13 07:44:56 by jlarieux         ###   ########.fr       */
+/*   Updated: 2024/09/13 09:07:21 by jlarieux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,57 +23,59 @@ char	*test_old_line_gnl(char *buffer)
 	ptr_n = ft_strchr(buffer, '\n');
 	if (ptr_n != NULL)
 	{
-		ptr_n++;
-		while (ptr_n[i] != '\0')
+		while (ptr_n[i + 1] != '\0')
 		{
-			buffer[i] = ptr_n[i];
+			buffer[i] = ptr_n[i + 1];
 			i++;
 		}
+		buffer[i] = '\0';
 	}
 	line = ft_strjoin(buffer, "");
-	if (line == NULL)
+	if (!line)
 		return (NULL);
 	return (line);
 }
 
 bool	test_new_line_gnl(char *line)
 {
-	char	*ptr;
+	char	*ptr_n;
+	char	*ptr_0;
 
 	if (!line || line == NULL)
 		return (false);
-	ptr = ft_strchr(line, '\n');
-	if (ptr != NULL)
+	ptr_n = ft_strchr(line, '\n');
+	if (ptr_n != NULL)
 	{
-		ptr++;
-		*ptr = '\0';
+		ptr_n[1] = '\0';
 		return (true);
 	}
 	return (false);
 }
 
-char	*make_line_gnl(char *line, char *buffer, int fd, size_t size)
+char	*make_line_gnl(char *line, char *buffer, int fd, ssize_t size)
 {
 	char	*tmp_line;
-	size_t	n;
+	ssize_t	n;
 
 	n = size;
-	while (!test_new_line_gnl(line) && n == size)
+	tmp_line = ft_strjoin(line, "");
+	free (line);
+	while (!test_new_line_gnl(tmp_line) && n == size)
 	{
 		n = read(fd, buffer, size);
 		if (n == -1)
 			return (free(line), NULL);
 		buffer[n] = '\0';
-		tmp_line = ft_strjoin(line, buffer);
+		line = ft_strjoin(tmp_line, buffer);
+		free(tmp_line);
+		if (!line || line[0] == '\0')
+			return (free(line), NULL);
+		tmp_line = ft_strjoin(line, "");
 		free(line);
 		if (!tmp_line || tmp_line[0] == '\0')
-			return (free(tmp_line), free(line), NULL);
-		line = ft_strjoin(tmp_line, "");
-		free(tmp_line);
-		if (!line)
-			return (NULL);
+			return (free(tmp_line), NULL);
 	}
-	return (line);
+	return (tmp_line);
 }
 
 char	*get_next_line(int fd)
@@ -92,7 +94,7 @@ char	*get_next_line(int fd)
 		return (free(tmp_line), NULL);
 	line = ft_strjoin(tmp_line, "");
 	free(tmp_line);
-	if (!line)
+	if (!line || line[0] == '\0')
 		return (NULL);
 	return (line);
 }
