@@ -6,7 +6,7 @@
 /*   By: jlarieux <jlarieux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 16:26:13 by jlarieux          #+#    #+#             */
-/*   Updated: 2024/09/12 18:10:12 by jlarieux         ###   ########.fr       */
+/*   Updated: 2024/09/13 07:44:56 by jlarieux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,17 @@ char	*test_old_line_gnl(char *buffer)
 {
 	char	*line;
 	char	*ptr_n;
+	int		i;
 
+	i = 0;
 	ptr_n = ft_strchr(buffer, '\n');
 	if (ptr_n != NULL)
 	{
 		ptr_n++;
-		while (*ptr_n != '\0')
+		while (ptr_n[i] != '\0')
 		{
-			*buffer = *ptr_n;
-			buffer++;
-			ptr_n++;
+			buffer[i] = ptr_n[i];
+			i++;
 		}
 	}
 	line = ft_strjoin(buffer, "");
