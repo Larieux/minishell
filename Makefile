@@ -6,7 +6,7 @@
 #    By: jlarieux <jlarieux@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/04 14:09:46 by jlarieux          #+#    #+#              #
-#    Updated: 2024/09/06 17:20:00 by jlarieux         ###   ########.fr        #
+#    Updated: 2024/09/17 15:26:02 by jlarieux         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,7 +46,7 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(OBJ_DIR)
 	$(CC) $(CPPFLAGS) $(CFLAGS) -c $< -o $@
 
 $(LIBFT) :
-	$(MAKE) -C $(LIBFT_DIR) bonus
+	$(MAKE) -C $(LIBFT_DIR)
 
 clean :
 	$(MAKE) -C $(LIBFT_DIR) clean
@@ -58,4 +58,4 @@ fclean : clean
 
 re : fclean all
 
-.PHONY : all $(LIBFT)
+.PHONY : all $(LIBFT) clean fclean re

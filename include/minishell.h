@@ -6,14 +6,12 @@
 /*   By: jlarieux <jlarieux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 14:14:27 by jlarieux          #+#    #+#             */
-/*   Updated: 2024/09/07 11:10:23 by jlarieux         ###   ########.fr       */
+/*   Updated: 2024/09/17 15:27:20 by jlarieux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MINISHELL_H
 # define MINISHELL_H
-
-# include "../src/libft/libft.h"
 
 # ifndef READ
 #  define READ	0
@@ -32,7 +30,7 @@
 # include <sys/wait.h>
 # include <stdbool.h>
 # include "minishell.h"
-# include "../src/libft/libft.h"
+# include "../src/libft/include/libft.h"
 
 typedef struct s_miniargs
 {

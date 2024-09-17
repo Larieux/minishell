@@ -6,7 +6,7 @@
 /*   By: jlarieux <jlarieux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 14:08:40 by jlarieux          #+#    #+#             */
-/*   Updated: 2024/09/13 09:01:33 by jlarieux         ###   ########.fr       */
+/*   Updated: 2024/09/17 14:46:52 by jlarieux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -176,7 +176,11 @@ int			ft_lstsize(t_list *lst);
 /* 																			  */
 /* ************************************************************************** */
 
-char		*test_old_line_gnl(char *buffer);
+size_t		ft_strlcat_gnl(char *dst, const char *src, size_t size);
+size_t		ft_strlen_gnl(const char *s);
+size_t		ft_strlcpy_gnl(char *dst, const char *src, size_t size);
+char		*ft_strjoin_gnl(char *s1, char *s2);
+bool		test_old_line_gnl(char *buffer);
 bool		test_new_line_gnl(char *line);
 char		*make_line_gnl(char *line, char *buffer, int fd, ssize_t size);
 
