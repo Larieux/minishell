@@ -6,7 +6,7 @@
 #    By: jlarieux <jlarieux@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/04 14:09:46 by jlarieux          #+#    #+#              #
-#    Updated: 2024/09/17 15:26:02 by jlarieux         ###   ########.fr        #
+#    Updated: 2024/09/18 13:09:42 by jlarieux         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,11 +32,11 @@ LDLIBS :=	-lm
 
 LIBFT = $(LIBFT_DIR)/libft.a
 
-EXE = $(BIN_DIR)/minishell
+NAME = $(BIN_DIR)/minishell
 
-all : $(LIBFT) $(EXE)
+all : $(LIBFT) $(NAME)
 
-$(EXE) : $(OBJ) | $(BIN_DIR)
+$(NAME) : $(OBJ) | $(BIN_DIR)
 	$(CC) $(LDFLAGS) $^ $(LDLIBS) -o $@ $(LIBFT)
 
 $(BIN_DIR) ${OBJ_DIR} :
@@ -54,7 +54,7 @@ clean :
 
 fclean : clean
 	$(MAKE) -C $(LIBFT_DIR) fclean
-	$(RM) $(EXE)
+	$(RM) $(NAME)
 
 re : fclean all
 
