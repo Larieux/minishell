@@ -6,13 +6,14 @@
 #    By: jlarieux <jlarieux@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/04 14:09:46 by jlarieux          #+#    #+#              #
-#    Updated: 2024/09/18 13:09:42 by jlarieux         ###   ########.fr        #
+#    Updated: 2024/10/02 08:29:28 by jlarieux         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRC =	$(SRC_DIR)/minibuilt_ins_actions.c $(SRC_DIR)/minibuilt_ins_ctrl.c \
 		$(SRC_DIR)/minibuilt_ins.c \
 		$(SRC_DIR)/minishell.c \
+		\
 		$(SRC_DIR)/pipex_children_managment.c $(SRC_DIR)/pipex_utilities.c \
 		$(SRC_DIR)/pipex_heredoc.c $(SRC_DIR)/pipex_args.c \
 		$(SRC_DIR)/pipex_children.c $(SRC_DIR)/pipex_exec.c \
