@@ -1,0 +1,37 @@
+minishell
+	check pipe syntax
+	parsing
+		tokens
+			syntax
+				check for quotes
+				=> tokenization
+					=> linked lists
+						=>everything into same quotes together in linked list
+							cmds
+								args
+							files
+	execution
+
+
+
+
+
+
+
+int	main(int argc, char **argv, char **envp)
+{
+	t_minist	s_minis;
+	int			fd_out;
+
+	s_minis.arg_c_or = argc;
+	s_minis.args = argv;
+	s_minis.env = envp;
+	fd_out = open("outfile", O_WRONLY | O_APPEND, 0644);
+	dup2(fd_out, STDOUT_FILENO);
+	ft_echo("HELL\n TO\n PAY", 0);
+	// pipex(&s_minis);
+	// free(s_minis.infile);
+	// free(s_minis.outfile);
+	close(fd_out);
+	return (0);
+}
