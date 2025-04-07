@@ -6,7 +6,7 @@
 /*   By: mlarieux <mlarieux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 14:33:07 by mlarieux          #+#    #+#             */
-/*   Updated: 2025/01/17 13:15:32 by mlarieux         ###   ########.fr       */
+/*   Updated: 2025/04/07 23:55:28 by mlarieux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,7 @@ typedef enum e_lexstate
 {
 	L_DEFAULT = 0,
 	L_IN_SQUOTE = 1,
-	L_IN_DQUOTE = 2,
-	L_IN_VAR = 3,
-	L_IN_COMMAND = 4
+	L_IN_DQUOTE = 2
 }	t_lexstate;
 
 typedef enum e_quotes

@@ -6,12 +6,19 @@
 /*   By: mlarieux <mlarieux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 13:05:43 by mlarieux          #+#    #+#             */
-/*   Updated: 2025/01/16 10:36:47 by mlarieux         ###   ########.fr       */
+/*   Updated: 2025/04/07 23:56:14 by mlarieux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MINIEXEC_H
 # define MINIEXEC_H
+
+typedef enum e_cmd
+{
+	CMD_FIRST = 0,
+	CMD_INTER = 1,
+	CMD_LAST = 2
+}	t_cmd;
 
 typedef struct s_minist	t_minist;
 
@@ -24,13 +31,6 @@ typedef struct s_exec
 	int	fd_out;
 	int	fd_prev_out;
 }		t_exec;
-
-typedef enum e_cmd
-{
-	CMD_FIRST = 0,
-	CMD_INTER = 1,
-	CMD_LAST = 2
-}	t_cmd;
 
 /* ************************************************************************** */
 /* 																			  */
